@@ -1,4 +1,4 @@
-# ZeroX Strike ⚡  
+# Zero-X Strike ⚡  
 *A Futuristic Tic-Tac-Toe Game with AI, Animations, and Game Statistics*
 
 <br/>
