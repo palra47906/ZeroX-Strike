@@ -101,6 +101,6 @@ Steps to contribute:
 
 <br/>
 
-> Designed and developed with passion 💙❤️ by <p style="font-family:verdana">Arijit Pal</p>
+> Designed and developed with passion 💙❤️ by <h3 style="font-family:verdana">Arijit Pal</h3>
 
 
