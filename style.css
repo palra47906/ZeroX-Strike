@@ -1,0 +1,294 @@
+/* General Setup */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  font-family: 'Orbitron', 'Audiowide', 'Share Tech Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #00f0ff;
+  transition: background 0.5s ease;
+}
+
+/* Glow effect for Hard mode */
+body.hard-mode .cell:hover {
+  box-shadow: 0 0 15px #00f0ff, 0 0 25px #00f0ff;
+  transition: box-shadow 0.3s;
+}
+
+/* Different winning line color */
+body.hard-mode canvas {
+  filter: drop-shadow(0 0 10px cyan);
+}
+
+/* Make the board slightly brighter */
+body.hard-mode #board {
+  border: 2px solid cyan;
+}
+
+/* Slightly bigger cell animation */
+body.hard-mode .cell {
+  transition: transform 0.3s ease;
+}
+
+body.hard-mode .cell:hover {
+  transform: scale(1.1);
+}
+/* Futuristic Glowing Text */
+h1, h2, p, label {
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+/* Heading */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Top Controls */
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.controls select,
+.controls button {
+  padding: 8px 15px;
+  border-radius: 10px;
+  background: #00f0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.controls select:hover,
+.controls button:hover {
+  transform: scale(1.1);
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+/* Board Wrapper */
+.board-wrapper {
+  position: relative;
+  width: 330px;
+  height: 330px;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #222;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #00f0ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00f0ff;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cell:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+/* Game Message */
+#message {
+  font-size: 2rem;
+  margin: 20px 0;
+  height: 40px;
+}
+
+/* Bottom Buttons */
+.buttons {
+  margin-top: 15px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  background: #00f0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.buttons button:hover {
+  background: #0ff;
+  transform: scale(1.1);
+}
+
+/* Canvas for Drawing Winning Line */
+#line-canvas {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Stats Modal */
+#stats-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: -5px 0 20px #00f0ff;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#stats-modal.show {
+  transform: translateX(0);
+}
+
+/* Stats Content Inside Modal */
+#stats-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+#stats-content h2 {
+  margin-bottom: 10px;
+}
+
+#stats-content p {
+  font-size: 1.1rem;
+}
+
+#stats-content button {
+  padding: 8px 15px;
+  margin-top: 10px;
+  background: #00f0ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#stats-content button:hover {
+  transform: scale(1.1);
+}
+
+/* Particles Background in Modal */
+#particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Close Button for Modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #00f0ff;
+  cursor: pointer;
+}
+
+/* Night Theme Mode */
+body.night {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+body.night .cell {
+  background: #111;
+  color: #0ff;
+}
+
+body.night .controls select,
+body.night .controls button,
+body.night .buttons button {
+  background: #0ff;
+  color: #000;
+}
+
+/* Common Banner Styles */
+.banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 4rem;
+  color: white;
+  background: rgba(0,0,0,0.7);
+  padding: 20px 40px;
+  border-radius: 20px;
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+  text-align: center;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+/* Win Style */
+#win-banner {
+  color: gold;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffae00, 0 0 30px #ff8000;
+}
+
+/* Lose Style */
+#lose-banner {
+  color: red;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000, 0 0 30px #cc0000;
+}
+
+/* Show Animation */
+.banner.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.neon-element {
+  text-shadow: 0 0 5px var(--glow-color),
+               0 0 10px var(--glow-color),
+               0 0 20px var(--glow-color);
+}

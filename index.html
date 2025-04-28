@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZeroX Strike</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Audiowide&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>ZeroX Strike</h1>
+
+  <!-- Top Controls -->
+  <div class="controls">
+    <select id="mode-select">
+      <option value="player-vs-player">Player vs Player</option>
+      <option value="player-vs-ai">Player vs AI</option>
+    </select>
+
+    <select id="difficulty-select" style="display: none;">
+      <option value="easy">Easy</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="hard">Hard</option>
+    </select>
+
+    <button id="theme-toggle">Toggle Theme</button>
+    <button id="stats-toggle">Show Stats</button>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div id="player-x-score">X: 0</div>
+    <div id="player-o-score">O: 0</div>
+  </div>
+
+  <!-- Board Wrapper -->
+  <div class="board-wrapper">
+    <canvas id="line-canvas"></canvas>
+    <div id="board"></div>
+  </div>
+
+  <!-- Message -->
+  <div id="message"></div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <button id="restart-btn">Restart</button>
+    <button id="undo-btn">Undo</button>
+    <button id="reset-scores-btn">Reset Scores</button>
+  </div>
+
+  <!-- Hidden audio for victory -->
+  <audio id="victory-sound" src="victory.mp3"></audio>
+
+<div id="win-banner" class="banner">You Win!</div>
+<div id="lose-banner" class="banner">You Lose!</div>
+
+<audio id="loss-sound" src="loss-sound.mp3"></audio> <!-- Sound when you lose -->
+
+
+  <!-- Stats Modal -->
+  <div id="stats-modal">
+    <canvas id="particles-canvas"></canvas>
+    <div id="stats-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h2>Game Stats</h2>
+      <p>Total Games: <span id="total-games">0</span></p>
+      <p>X Wins: <span id="x-wins">0</span></p>
+      <p>O Wins: <span id="o-wins">0</span></p>
+      <p>Draws: <span id="draws">0</span></p>
+      <button id="clear-stats-btn">Clear Stats</button>
+    </div>
+  </div>
+
+  <label>Choose your Glow Color:</label>
+  <input type="color" id="glowColorPicker" value="#00FFFF">  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
